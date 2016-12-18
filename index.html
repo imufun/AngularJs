@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	
+	<style type="text/css">
+		b{margin-bottom:15px;}
+	</style>
+	
+	</head>
+	
+<body>	
+ 
+	<div ng-controller="myController">
+		{{message}}
+	</div>
+	
+	<div ng-controller="DataBinding">
+		 <p>First Name: {{employee.firtName}}</p>
+		 <p>Last Name: {{employee.LastName}}</p>
+		 <p>Gender Name: {{employee.Gender}}</p>
+		  
+	</div>
+	
+	<!--AngularJS ng src directive-->
+	<b>AngularJS ng src directive</b>
+	<div ng-controller="AngularJS-ng-Src-directive">
+		 <p>Name: {{imagesItem.name}}</p>
+		 <p>source: {{imagesItem.source}}</p>
+		 <!-- <p><img src="{{imagesItem.img}}" alt="{{imagesItem.name + 'banana'}}"></p> -->
+		 <!-- image use ng-src-->
+		 <p><img ng-src="{{imagesItem.img}}" alt="{{imagesItem.name}}"></p>
+	</div>
+	
+	<!--Two way databinding in AngularJS-->	
+	<b>Two way databinding in AngularJS</b>
+	<div ng-controller="Two-way-databinding-in-AngularJS">
+		<!-- <input type="text" ng-model="datsend" />
+		<p>{{message}}</p>
+		<p>{{datsend}}</p> -->
+		
+		<table>
+			<tr>
+				<td>First Name</td>
+				<td> <input type="text" ng-model="TwoWayDatabinding.firtName" /></td>				
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td> <input type="text" ng-model="TwoWayDatabinding.LastName" /></td>				
+			</tr>
+			
+			<tr>
+				<td>Gender</td>
+				<td> <input type="text" ng-model="TwoWayDatabinding.Gender" /></td>				
+			</tr>
+		</table>
+		
+		<br>
+		
+			<table>
+			<tr><td>First Name</td>
+				<td>{{TwoWayDatabinding.firtName}}		</td>	
+			</tr>
+			<tr><td>Last Name</td>
+			<td>{{TwoWayDatabinding.LastName}}	</td>	
+			</tr>
+			
+			<tr><td>Gender</td>
+				<td>{{TwoWayDatabinding.Gender}}</td>		
+			</tr>
+		</table>
+	<div>
+	
+	<!-- AngularJS ng repeat directive-->
+	<b>AngularJS ng repeat directive</b>
+	<div ng-controller="AngularJSngrepeatdirective">
+		<table>
+			<thead>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Gender</th>
+				<th>Salary</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="emp in emps">
+					<td>{{emp.FirstName}}</td>					 
+					<td>{{emp.LastName}}</td>					 
+					<td>{{emp.Gender}}</td>					 
+					<td>{{emp.Salary}}</td>					 
+				</tr>
+			</tbody>
+		</table>
+		
+		<br>
+		<!-- Nested repeat-->
+		<ul>
+			<li ng-repeat="countrie in countries">
+				{{countrie.item}}
+				<ul>
+					<li ng-repeat="City in countrie.Citys">
+						{{City.Name}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+</body>	
+</html>
