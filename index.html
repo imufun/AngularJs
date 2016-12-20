@@ -4,8 +4,10 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-
+        <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">-->
+<!--<script src="https://use.fontawesome.com/c95dd31573.js"></script>-->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
     <style type="text/css">
         b {
             margin-bottom: 15px;
@@ -47,16 +49,16 @@
     <table>
         <tr>
             <td>First Name</td>
-            <td><input type="text" ng-model="TwoWayDatabinding.firtName"/></td>
-        </tr>
+            <td><input type="text" ng-model="TwoWayDatabinding.firtName" class="form-control"/></td>
+        </tr><br>
         <tr>
             <td>Last Name</td>
-            <td><input type="text" ng-model="TwoWayDatabinding.LastName"/></td>
+            <td><input type="text" ng-model="TwoWayDatabinding.LastName" class="form-control"/></td>
         </tr>
-
+<br>
         <tr>
             <td>Gender</td>
-            <td><input type="text" ng-model="TwoWayDatabinding.Gender"/></td>
+            <td><input type="text" ng-model="TwoWayDatabinding.Gender" class="form-control"/></td>
         </tr>
     </table>
 
@@ -138,29 +140,40 @@
                 </tbody>
             </table>
         </div>
-        <!-- AngularJS filters -->
-    <p class="alert alert-success">AngularJS filters</p>
+        <!-- AngularJS filters --><br>
+    <p class="alert alert-success"><b>AngularJS filters | select option | Biderection sort | search filter | Filter by multiple properties</b></p>
         <div ng-controller="AngularJSFilters">
             Row Display <input type="number" class="form-control" step="1" value="0" min=" 5" max="" ng-model="rowLimit">
-            
+            <br>
+            <p>select option sort</p>
             <select class="form-control" ng-model="selectSort">
                  <option value="name">name</option>
                  <option value="dateOfBirth">Date of Birth</option>
                  <option value="Gender">Gender</option>
                  <option value="salary">salary</option>
                  <option value="salary">salary</option>
-             </select>
+             </select><br>
+             Search Filter: <input type="text" name="" placeholder="Search Filter" ng-model="SearchTable" class="form-control">
+		    <br>
+            
+            <div class="row">
+	            <p>Filter by multiple properties</p>
+            <!--	<div class="col-md-4"><input type="text" name="" placeholder="Search Name" ng-model="SearchTable.name" class="form-control"></div>
+                <div class="col-md-4"><input type="text" name="" placeholder="Search City" ng-model="SearchTable.city" class="form-control"></div>	
+                <div class="col-md-4"><div class="checkbox"><label><input type="checkbox" ng-model="exactMatch"> Exact match</label></div></div>-->
+            </div>
+            <br>
             <table class="table table-bordered table-hover">
 
                 <thead>
-                <th>Name</th>
-                <th>Date of Birth</th>
-                <th>Gender</th>
-                <th>Salary(Nmber)</th>
-                <th>Salary(Currency)</th>
+                <th ng-click=" SortData( 'name')" >Name <span ng-class="getData('name')"></span></th>
+                <th ng-click="SortData( 'dateOfBirth')">Date of Birth <span ng-class="getData('dateOfBirth')"></span> </th>
+                <th ng-click="SortData( 'Gender')">Gender <span ng-class="getData('Gender')"></span> </th>
+                <th ng-click="SortData( 'salary')">Salary(Nmber)<span ng-class="getData('salary')"></span> </th>
+                <th ng-click="SortData( 'salary')" >Salary(Currency)<span ng-class="getData('salary')"></span> </th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="employee in employees | limitTo: rowLimit | orderBy: 'name' | orderBy: selectSort">
+                <tr ng-repeat="employee in employees | limitTo: rowLimit | orderBy: 'name' | orderBy: selectSort:revarseSort | filter: SearchTable ">
                     <td>{{employee.name | uppercase}}</td>
                     <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
                     <td>{{employee.Gender | lowercase}}</td>
@@ -170,6 +183,35 @@
                 </tbody>
             </table>
         </div>
+        <br>
+		
+               <p class="alert alert-success">Custome filter Angular js</p>         
+  <table class="table table-bordered table-hover" ng-controller="cutomeFilter">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
 
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
@@ -177,9 +219,7 @@
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 </html>

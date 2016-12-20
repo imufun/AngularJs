@@ -113,11 +113,44 @@ myApp.controller("AngularJSFilters", function ($scope) {
         {name: "Faa", dateOfBirth: new Date("may 12, 2000"), Gender: "Male", salary: 6},
         {name: "Gsf", dateOfBirth: new Date("jan 1, 2000"), Gender: "Male", salary: 565},
         {name: "Hsfsf", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 453567},
+		 {name: "Imran", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 453567},
         {name: "Ifs", dateOfBirth: new Date("November 236 2000"), Gender: "Female", salary: 2313}
     ];
     $scope.employees = employees;
 	 
 	$scope.rowLimit = 3;
 	$scope.selectSort = "name";
+	
+	$scope.revarseSort = false;
+	
+	
+	$scope.SortData = function(column){
+		$scope.revarseSort = ($scope.selectSort === column ) ? !$scope.revarseSort :false;
+		$scope.selectSort =  column;
+	};
+	
+	$scope.getData = function (column){
+		if($scope.selectSort === column ){
+			return $scope.revarseSort ? 'fa fa-caret-down': 'fa fa-caret-up';
+		}
+		
+		return '' ;
+	};
+	
+	
+myApp.controller("cutomeFilter",function($scope){
+	
+	 
+
+	var customData = [
+			{name:"John", lastname:"Doe", email:"john@example.com"},
+			{name:"Mary", lastname:"Moe", email:"Mary@example.com"},
+			{name:"July", lastname:"Doe", email:"july@example.com"},
+			{name:"John", lastname:"Doe", email:"john@example.com"}
+	];
+	$scope.customData =customData;
+
+});
+	
 	 
 });
