@@ -77,7 +77,7 @@
             <td>{{TwoWayDatabinding.Gender}}</td>
         </tr>
     </table>
-    <div>
+    
 
     </div>
 
@@ -116,7 +116,7 @@
         </div>
 
         <!-- Handling events in AngularJS-->
-        <p class="alert alert-success">Handling events in AngularJS</>
+        <p class="alert alert-success">Handling events in AngularJS</p>
         <div ng-controller="HandlingEvent">
             <table>
                 <thead>
@@ -142,6 +142,14 @@
     <p class="alert alert-success">AngularJS filters</p>
         <div ng-controller="AngularJSFilters">
             Row Display <input type="number" class="form-control" step="1" value="0" min=" 5" max="" ng-model="rowLimit">
+            
+            <select class="form-control" ng-model="selectSort">
+                 <option value="name">name</option>
+                 <option value="dateOfBirth">Date of Birth</option>
+                 <option value="Gender">Gender</option>
+                 <option value="salary">salary</option>
+                 <option value="salary">salary</option>
+             </select>
             <table class="table table-bordered table-hover">
 
                 <thead>
@@ -152,7 +160,7 @@
                 <th>Salary(Currency)</th>
                 </thead>
                 <tbody>
-                <tr ng-repeat="employee in employees | limitTo: rowLimit">
+                <tr ng-repeat="employee in employees | limitTo: rowLimit | orderBy: 'name' | orderBy: selectSort">
                     <td>{{employee.name | uppercase}}</td>
                     <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
                     <td>{{employee.Gender | lowercase}}</td>
@@ -163,7 +171,7 @@
             </table>
         </div>
 
-
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

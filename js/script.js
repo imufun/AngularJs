@@ -95,27 +95,29 @@ myApp.controller("HandlingEvent", function ($scope) {
 
     $scope.incrementLikes = function (technologie) {
         technologie.likes++;
-    }
+    };
     $scope.incrementDisLikes = function (technologie) {
         technologie.dislikes++;
-    }
+    };
 });
 
 
 //AngularJS filters
 myApp.controller("AngularJSFilters", function ($scope) {
     var employees = [
-        {name: "A", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "B", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "C", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "D", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "E", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "F", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "G", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "H", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100},
-        {name: "I", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 100}
+        {name: "Aggs", dateOfBirth: new Date("November 8, 2000"), Gender: "Female", salary: 99},
+        {name: "Beeeds", dateOfBirth: new Date("November 24, 200"), Gender: "Male", salary: 5345},
+        {name: "Cjyt", dateOfBirth: new Date("November 1, 2000"), Gender: "Female", salary: 88},
+        {name: "Dss", dateOfBirth: new Date("jan 8, 2000"), Gender: "Male", salary: 33},
+        {name: "Eewr", dateOfBirth: new Date("feb 23, 2000"), Gender: "Female", salary: 2},
+        {name: "Faa", dateOfBirth: new Date("may 12, 2000"), Gender: "Male", salary: 6},
+        {name: "Gsf", dateOfBirth: new Date("jan 1, 2000"), Gender: "Male", salary: 565},
+        {name: "Hsfsf", dateOfBirth: new Date("November 23, 2000"), Gender: "Male", salary: 453567},
+        {name: "Ifs", dateOfBirth: new Date("November 236 2000"), Gender: "Female", salary: 2313}
     ];
     $scope.employees = employees;
-
-    $scope.rowLimit = 3;
+	 
+	$scope.rowLimit = 3;
+	$scope.selectSort = "name";
+	 
 });
